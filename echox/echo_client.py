@@ -8,7 +8,6 @@ from lxml import html
 
 _LOGIN_HOST = "https://login.echo360.org.uk/"
 _BASE_HOST = "https://echo360.org.uk/"
-_CONTENT_HOST = "https://content.echo360.org.uk"
 
 _ECHO_OK_STATUS = "ok"
 _REQUIRED_COOKIES = {
@@ -371,8 +370,8 @@ class EchoClient:
     ):
         response = self._session.get(
             urljoin(
-                _CONTENT_HOST,
-                f"/0000.{self._user.institution_id}/{media.media_id}/1/{target_file}",
+                _BASE_HOST,
+                f"/media/download/{media.media_id}/{target_file}",
             ),
             stream=True,
         )
